@@ -1,20 +1,36 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
+
 <body>
-    
-<header class="header-content">
 
-</header>
-<div class="container">
+    <header class="header-content">
+        <h6>
+            Week 3 - Quiz Application
+        </h6>
+        <h1>
+            Quiz
+        </h1>
+        <div>
+            <h3 id="time"></h3>
+        </div>
+    </header>
 
-</div>
+    <section class="container">
+        <div class="quiz"></div>
+        <button type="button" class="start btn btn-success" id="startButton" onclick="startQuiz()">Start</button>
+        <button type="button" class="submit btn btn-primary" id="submit-button">Submit</button>
+        <div class="results"></div>
+    </section>
 
-
+    <script src="script.js"></script>
 </body>
+
 </html>
