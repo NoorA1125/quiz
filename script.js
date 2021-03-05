@@ -24,10 +24,10 @@ var results = document.querySelector("#results");
 var timeText = document.querySelector("#time");
 var timeLeft = 30;
 var quizContainer = document.querySelector("#quizQuestions");
+var quizAnswers = document.querySelector("#quizAnswers")
 var quizResults = document.querySelector("#results");
-let shuffledQuestions, currentQuestionIndex
-
-/* Creating questionaires for the Quiz - Programming related*/
+var shuffledQuestions,currentQuestionIndex;
+var quizAnswers;
 var quizQuestions = [
     {
         question: "Which is the proper way to link a JS file to a HTML file?",
@@ -81,35 +81,47 @@ var quizQuestions = [
 
 ];
 
+
 function startQuiz() {
     startButton.addEventListener("click", timer());
-    shuffledQuestions = quizQuestions.sort(() => Math.random() - 0.5) //shuffles the questions randomly by randomly choosing even or odd
+    shuffledQuestions = quizQuestions.sort(() => Math.random() - 0.5);; //shuffles the questions randomly by randomly choosing even or odd
     currentQuestionIndex = 0;
+    console.log(quizQuestions);
     displayNextQuestion();
-}
+};
 
 function displayNextQuestion() {
     showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
+    showAnswer(shuffledQuestions[currentQuestionIndex]);
+
+    console.log(quizQuestions);
+};
 
 function showQuestion(question) {
-    quizContainer.innerHTML = quizQuestions.question;
+    quizContainer.innerHTML = question.question;
+    console.log(quizQuestions);
 
+};
+
+function showAnswer(question){
+    quizAnswers.innerHTML = question.answers[];
 }
 //How the timer works and is called
 function timer() {
     timeText.textContent = timeLeft;
     var timed = setInterval(function () {
         timeLeft--;
-        timeText.textContent = timeLeft + " seconds left";
+        timeText.textContent = timeLeft + " secs left";
         if (timeLeft === 0) {
-            timeLeft = 0;
             clearInterval(timed);
             alert("You Lost!");
+            timeLeft = 30;
         }
     }, 1000);
 
-}
+};
+
+/* Creating questionaires for the Quiz - Programming related*/
 
 // Event listeners
 //submitButton.addEventListener('click', showResults);
