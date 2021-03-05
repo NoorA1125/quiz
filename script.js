@@ -1,3 +1,4 @@
+
 /*
 taking a code quiz
 click the start button - Done
@@ -18,72 +19,90 @@ WHEN the game is over
 */
 
 var startButton = document.getElementById("startButton");
-//var submitButton = document.querySelector("#submit-button");
-//var results = document.querySelector("#results");
+var submitButton = document.querySelector("#submit-button");
+var results = document.querySelector("#results");
 var timeText = document.querySelector("#time");
 var timeLeft = 30;
+var quizContainer = document.querySelector("#container");
+var quizResults = document.querySelector("#results");
 
 /* Creating questionaires for the Quiz - Programming related*/
 var quizQuestions = [
     {
-    question: "Which is the proper way to link a JS file to a HTML file?",
-    answers: {
-        a: "<script src="+"script.js" + "></script>",
-        b: "<style href="+"script.js" +"></style>",
-        c: "<img src="+"script.js"+">",
-        d: "<script href="+"script.js" + "></script>"
+        question: "Which is the proper way to link a JS file to a HTML file?",
+        answers: {
+            a: "<script src=" + "script.js" + "></script>",
+            b: "<style href=" + "script.js" + "></style>",
+            c: "<img src=" + "script.js" + ">",
+            d: "<script href=" + "script.js" + "></script>"
+        },
+        correctAnswer: "a"
     },
-    correctAnswer:"a"
-},
-{
-    question: "Which is the proper way to link a JS file to a HTML file?",
-    answers: {
-        a: "<script src="+"script.js" + "></script>",
-        b: "<style href="+"script.js" +"></style>",
-        c: "<img src="+"script.js"+">",
-        d: "<script href="+"script.js" + "></script>"
+    {
+        question: "Can you have multple <header> & <footer> tags in a single page?",
+        answers: {
+            a: "Yes",
+            b: "No",
+        },
+        correctAnswer: "a"
     },
-    correctAnswer:"a"
-},
-{
-    question: "Which is the proper way to link a JS file to a HTML file?",
-    answers: {
-        a: "<script src="+"script.js" + "></script>",
-        b: "<style href="+"script.js" +"></style>",
-        c: "<img src="+"script.js"+">",
-        d: "<script href="+"script.js" + "></script>"
+    {
+        question: "What does CSS stand for?",
+        answers: {
+            a: "Come Science Simpleified",
+            b: "Cascading Style Sleeps",
+            c: "Cascading Style Sheets",
+            d: "Cascading Style Sheet"
+        },
+        correctAnswer: "c"
     },
-    correctAnswer:"a"
-},
-{
-    question: "Which is the proper way to link a JS file to a HTML file?",
-    answers: {
-        a: "<script src="+"script.js" + "></script>",
-        b: "<style href="+"script.js" +"></style>",
-        c: "<img src="+"script.js"+">",
-        d: "<script href="+"script.js" + "></script>"
+    {
+        question: "What are the 3 main skillsets needed to become a mordern day Front-End Developer?",
+        answers: {
+            a: "HTML, CSS6, Java",
+            b: "JavaScript, XML, Cascading Style Sheets",
+            c: "Cascading Style Sheets, HTML, React",
+            d: "HTML, JavaScript, Cascading Style Sheets"
+        },
+        correctAnswer: "d"
     },
-    correctAnswer:"a"
-},
+    {
+        question: "Order these headings in the correct order: Largest > Smallest",
+        answers: {
+            a: "H1, H2, H3, H4, H5, H6, H7, H8",
+            b: "H1, H2, H3, H4, H5, H6, H7",
+            c: "H1, H2, H3, H4, H5, H6",
+            d: "H1, H2, H3, H4, H5,"
+        },
+        correctAnswer: "c"
+    },
 
 
-]
-function startQuiz (){
-    //Trigger the start button to start the timer
+];
+
+function startQuiz() {
     startButton.addEventListener("click", timer());
+    timer();
+
 }
 
+//How the timer works and is called
 function timer() {
-    timeText.textContent= timeLeft;
-    var timed = setInterval(function(){
+    timeText.textContent = timeLeft;
+    var timed = setInterval(function () {
         timeLeft--;
         timeText.textContent = timeLeft + " seconds left";
         if (timeLeft === 0) {
+            timeLeft = 0;
             clearInterval(timed);
             alert("You Lost!");
         }
     }, 1000);
-    
+
 }
 
-startQuiz;
+// Event listeners
+submitButton.addEventListener('click', showResults);
+
+
+
