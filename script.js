@@ -23,8 +23,9 @@ var submitButton = document.querySelector("#submit-button");
 var results = document.querySelector("#results");
 var timeText = document.querySelector("#time");
 var timeLeft = 30;
-var quizContainer = document.querySelector("#container");
+var quizContainer = document.querySelector("#quizQuestions");
 var quizResults = document.querySelector("#results");
+let shuffledQuestions, currentQuestionIndex
 
 /* Creating questionaires for the Quiz - Programming related*/
 var quizQuestions = [
@@ -82,10 +83,19 @@ var quizQuestions = [
 
 function startQuiz() {
     startButton.addEventListener("click", timer());
-    timer();
-
+    shuffledQuestions = quizQuestions.sort(() => Math.random() - 0.5) //shuffles the questions randomly by randomly choosing even or odd
+    currentQuestionIndex = 0;
+    displayNextQuestion();
 }
 
+function displayNextQuestion() {
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+function showQuestion(question) {
+    quizContainer.innerHTML = quizQuestions.question;
+
+}
 //How the timer works and is called
 function timer() {
     timeText.textContent = timeLeft;
@@ -102,7 +112,7 @@ function timer() {
 }
 
 // Event listeners
-submitButton.addEventListener('click', showResults);
+//submitButton.addEventListener('click', showResults);
 
 
 
